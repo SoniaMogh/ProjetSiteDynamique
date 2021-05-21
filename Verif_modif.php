@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php
-            $connect = mysqli_connect("127.0.0.1", "root", "","SiteWebDynamique");
+            $connect = mysqli_connect("127.0.0.1", "root", "","GestionProduits");
             if($connect) {
                 echo "connexion réussie <br/>";
             }

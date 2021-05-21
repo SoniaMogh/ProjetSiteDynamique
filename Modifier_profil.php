@@ -1,14 +1,30 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="Modifier_profil.css">
         <title>Modification du Profil</title>
     </head>
     
     <body>
-        <h1>Modification du Profil</h1> <br/>
-        
+        <br/><h1>Modification du Profil</h1> <br/>
+        <div class="navig">
+            <h3>Menu</h3>
         <?php
-            $connect = mysqli_connect("127.0.0.1", "root", "","SiteWebDynamique");
+          if (isset($_GET["Emailm"])) {
+            $Login1 = $_GET["Emailm"];
+            echo "<a href='Consulter_profil.php?Emailc=$Login1'>Consulter mon Profil </a><br/><br/>";
+            echo "<a href='Modifier_profil.php?Emailm=$Login1'>Modifier mes Informations</a><br/><br/>";
+
+            echo '<a href="GestionCommande.php">Passer une Commande</a><br/><br/>';
+            echo '<a href="GestionCommande.php">Ajouter un Commentaire</a><br/><br/>';
+            echo '<a href="index.php" title="deconnection">Deconnection</a><br/><br/>';
+          }
+
+        ?>
+        </div>
+        <div class="contenu">
+        <?php
+            $connect = mysqli_connect("127.0.0.1", "root", "","GestionProduits");
             if($connect) {
                 echo "connexion réussie <br/>";
             }
@@ -38,7 +54,7 @@
 
         <form action="Verif_modif.php" method="POST" name="formulation">
             
-            Id : <input type="text" name="idm" readonly value="<?php echo $idM; ?> " <br><br>
+            Id : <input type="text" id="idm" name="idm" readonly value="<?php echo $idM; ?> " <br><br>
             
             <fieldset>
                 <legend>Coordonnees</legend>
@@ -66,8 +82,8 @@
 
                 <br/> 
 
-                <fieldset>
-                    <legend>Adresse Postale</legend>
+                
+                <legend><b>Adresse Postale</b></legend>
                     <label for="idPostalMod"> Code Postal : </label>  
                     <input type="text" name="CodePostalMod" id="idPostalMod" required value="<?php if(isset($codepostalM)) { echo $codepostalM;} ?>"
                     minlength="5" minlength="5"/> 
@@ -81,7 +97,7 @@
                     
                     <label for="idRueMod"> Rue : </label>  
                     <input type="text" name="RueMod" id="idRueMod" required value="<?php if(isset($rueM)) { echo $rueM;} ?>" />
-                </fieldset>
+                
                 
             </fieldset> <br/>  
 
@@ -115,10 +131,12 @@
                 
             </fieldset> <br/>  
 
-            <input type="submit" name="Modifier" value="Modifier" /> 
-            <input type="reset" name="reset" value="reset"/> 
+            <input type="submit" id="idenvoyer" name="Modifier" value="Modifier" /> 
+            <input type="reset" id="idreset" name="reset" value="reset"/> 
             
         </form>
+        </div>
     </body>
+    <footer> <p class="ContactSociete"> Adresse : 54 rue de la mort      Tel : 06.06.06.06.06</p></footer>
 </html>
 

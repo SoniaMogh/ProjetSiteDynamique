@@ -1,6 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="Inscription_v1.css">
         <title>Inscription</title>
     </head>
     
@@ -34,8 +35,8 @@
                 pattern = "0{1}[0-9]{9}"/>
 
                 <br/> 
-                <fieldset>
-                    <legend>Adresse Postale</legend>
+                
+                <legend><b>Adresse Postale</b></legend>
                     <label for="idPostal"> Code Postal : </label>  
                     <input type="text" name="CodePostal" id="idPostal" required
                     minlength="5" minlength="5"/> 
@@ -43,19 +44,19 @@
                     <br/> 
                     
                     <label for="idVille"> Ville : </label>  
-                    <input type="text" name="Ville" id="idVille" required
+                    <input type="text" name="Ville" id="idVille" required/>
                     
                     <br/>
                     
                     <label for="idRue"> Rue : </label>  
-                    <input type="text" name="Rue" id="idRue" required
-                </fieldset>
+                    <input type="text" name="Rue" id="idRue" required/>
+                
             </fieldset> <br/>  
 
             <fieldset>
                 <legend>Informations Generales</legend>            
                 Sexe :
-                <select name="Sexe">
+                <select name="Sexe" id="idsex">
                     <option value=""></option>
                     <option value="Femme">Femme</option>
                     <option value="Homme">Homme</option>
@@ -64,7 +65,7 @@
 
                 <br/>  
                 Situation Familiale :
-                <select name="Sit_Fam">
+                <select name="Sit_Fam" id="idsitfam">
                     <option value=""></option>
                     <option value="Marie">Marie(e)</option>
                     <option value="Pacse">Pacse(e)</option>
@@ -95,9 +96,9 @@
 
             </fieldset> <br/>                   
 
-            <input type="submit" name="envoyer" value="envoyer" /> 
-            <input type="reset" name="reset" value="reset"/> 
-        </form>
+            <input type="submit" id="idenvoyer" name="envoyer" value="envoyer" /> 
+            <input type="reset" id="idreset"  name="reset" value="reset"/> 
     </body>
+    <footer> <p class="ContactSociete"> Adresse : 54 rue de la mort      Tel : 06.06.06.06.06</p></footer>
 </html>
 

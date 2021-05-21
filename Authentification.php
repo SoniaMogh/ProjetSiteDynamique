@@ -12,17 +12,16 @@ $_SESSION['Mot_de_passe'] = "";
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="StyleProjet.css">
+        <link rel="stylesheet" href="Authentification.css">
         <title>Authentification</title>
     </head>
     
     <body>
+        <div class="contenu">
         <h1>S'identifier</h1> <br/>
         
         <form action="verif.php" method="POST" name="Authentification">
-            <?php
-            //echo "login : [".$_COOKIE['log'] ."] mot de passe [" .$_COOKIE['mp']."]";
-            ?><br/> 
+            <br/>
             
             <input type="radio" name="Profil" value="Manager" /> Manager
             <input type="radio" name="Profil" value="Client" /> Client
@@ -44,7 +43,7 @@ $_SESSION['Mot_de_passe'] = "";
             <input type="reset" name="reset" value="reset"/> 
             <br/><br/>
             <a href="verif_mana.php">Manager déja connecté ?</a>
-            
+            <br/><br/>
             <?php
             if(isset($_GET['message'])&&$_GET['message']=='Vide'){
                 echo "<p style='color:red'>Les champs login et mot de passe sont requis</p>";
@@ -68,6 +67,8 @@ $_SESSION['Mot_de_passe'] = "";
             ?>
            
         </form>
+        </div>
     </body> 
+    <footer> <p class="ContactSociete"> Adresse : 54 rue de la mort      Tel : 06.06.06.06.06</p></footer>
 </html>
 

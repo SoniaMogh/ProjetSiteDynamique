@@ -3,12 +3,32 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="Consulter_profil.css">
         <title>Mon Profil</title>
     </head>
     <body>
-
+        <br/><h1>Consulter mon profil</h1> <br/>
+        <div class="navig">
+            <h3>Menu</h3>
         <?php
-        $connect = mysqli_connect("127.0.0.1", "root", "","SiteWebDynamique");
+          if (isset($_GET["Emailc"])) {
+            $Login1 = $_GET["Emailc"];
+            echo "<a href='Consulter_profil.php?Emailc=$Login1'>Consulter mon Profil </a><br/><br/>";
+            echo "<a href='Modifier_profil.php?Emailm=$Login1'>Modifier mes Informations</a><br/><br/>";
+
+            echo '<a href="GestionCommande.php">Passer une Commande</a><br/><br/>';
+            echo '<a href="GestionCommande.php">Ajouter un Commentaire</a><br/><br/>';
+            echo '<a href="index.php" title="deconnection">Deconnection</a><br/><br/>';
+          }
+
+        ?>
+        </div>
+        <div class="contenu">
+            <?php
+            //echo "login : [".$_COOKIE['log'] ."] et mot de passe [" .$_COOKIE['mp']."]";
+            ?><br/> 
+        <?php
+        $connect = mysqli_connect("127.0.0.1", "root", "","GestionProduits");
         if($connect) {
             echo "connexion réussie <br/>";
         }
@@ -30,7 +50,7 @@
                     $var2 = mysqli_stmt_bind_result($result, $Id, $nomc, $prenomc, $telephonec, $codepostalc, $villec, $ruec, $sexec, $situationc, $naissancec);
                     mysqli_stmt_fetch($result);
                     
-                    echo 'ID : ' . $Id . "<br />";
+                    echo '<h3>ID : ' . $Id . "<br />";
                     echo 'Nom : ' . $nomc . "<br />";
                     echo 'Prenom : ' . $prenomc . "<br />";
                     echo 'Email : ' . $mailc . "<br />";
@@ -38,7 +58,7 @@
                     echo 'Adresse : ' . $ruec . " " . $villec . " ". $codepostalc . "<br />";
                     echo 'Sexe : ' . $sexec . "<br />";
                     echo 'Situation : ' . $situationc . "<br />"; 
-                    echo 'Date de Naissance : ' . $naissancec . "<br />";
+                    echo 'Date de Naissance : ' . $naissancec . "<br /></h3>";
                     mysqli_stmt_close($result);
                 
                 
@@ -57,6 +77,7 @@
         $message="Une erreur s'est produite, veuillez reessayer dans quelques instants.";
         }
             ?>
-    
+    </div>
     </body>
+    <footer> <p class="ContactSociete"> Adresse : 54 rue de la mort      Tel : 06.06.06.06.06</p></footer>
 </html>

@@ -1,5 +1,5 @@
 <?php
-    $connect = mysqli_connect("127.0.0.1", "root", "","SiteWebDynamique");
+    $connect = mysqli_connect("127.0.0.1", "root", "","GestionProduits");
     if($connect) {
         echo "connexion réussie <br/>";
     }
@@ -19,7 +19,7 @@
     $Naissance = mysqli_real_escape_string($connect, $_POST["Date_Naissance"]);
     $Password = $_POST["Mot_de_passe"];
     
-    $req = "SELECT Email FROM client(Nom, Prenom, Email, Telephone, CodePostal, Ville, Rue, Sexe, Situation, Naissance, Password) 
+    $req = "INSERT INTO client(Nom, Prenom, Email, Telephone, CodePostal, Ville, Rue, Sexe, Situation, Naissance, Password) 
         VALUES(?,?,?,?,?,?,?,?,?,?,?)";
     
     $res = mysqli_prepare($connect,$req);
